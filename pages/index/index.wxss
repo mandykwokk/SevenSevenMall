@@ -431,3 +431,27 @@
 .loadmore-bg{
   background-color: #E3EEF7;
 }
+
+.row::after {
+  clear: both;
+  display: table;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.coupons-float2 {
+  position: fixed;
+  right:-28rpx;
+  /* right:50% - 10rpx; */
+  bottom:80rpx;
+  width:210rpx;
+  height:70rpx;
+  border-radius:20px;
+}

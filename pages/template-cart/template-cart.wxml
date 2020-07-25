@@ -21,7 +21,8 @@
             <view class="goods-title">{{item.name}}</view>
             <view wx:if="{{item.sku}}" class="goods-label">
               <block wx:for="{{item.sku}}" wx:for-item="option" wx:key="index">
-                {{option.optionName}}:{{option.optionValueName}}
+                <!-- {{option.optionName}}:{{option.optionValueName}} -->
+                点餐: {{option.optionValueName}}
               </block>
             </view>
             <view class="goods-price">$ {{item.price}}</view>

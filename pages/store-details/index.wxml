@@ -1,0 +1,289 @@
+<import src="/template/login/index.wxml" />
+<view class="container">
+<button open-type='contact'>
+<view class='coupons-float' style="display:block;">
+  <!-- <image style="height: 18px; width: 18px; display:inline-block; position:absolute;margin-left: 18rpx;margin-top: 15rpx;" src="/images/customer-service.png"></image> -->
+  <text class="coupons-float2" style="font-size: 28rpx; color: #fff; text-align:center;">联系客服</text>
+</view>
+</button>
+  <view class="swiper-container">
+    <swiper class="swiper_box" indicator-dots="true" indicator-active-color="#fff" autoplay="{{!goodsDetail.basicInfo.videoId}}" circular>
+      <swiper-item wx:if="{{goodsDetail.basicInfo.videoId}}">
+        <video src="{{videoMp4Src}}" autoplay="true" loop="true" style='width:100%;height:100%;'></video>
+      </swiper-item>
+      <swiper-item wx:for="{{goodsDetail.pics}}" wx:key="id">
+        <image style="display: block;margin-top: auto; margin-bottom: auto;height: 400rpx;" src="{{item.pic}}" class="slide-image" mode="aspectFill" lazy-load="true" />
+      </swiper-item>      
+    </swiper>
+  </view>
+  <view class="goods-info">
+    <view class="goods-title">{{goodsDetail.basicInfo.name}}</view>
+    <!-- <view class="goods-share" wx:if="{{goodsDetail.basicInfo.commissionType == 1}}">分享有赏，好友下单后可得 {{goodsDetail.basicInfo.commission}} 积分奖励</view>
+    <view class="goods-share" wx:if="{{goodsDetail.basicInfo.commissionType == 2}}">分享有赏，好友下单后可得 {{goodsDetail.basicInfo.commission}}元 现金奖励</view>
+    <view class="goods-profile">
+      <view class="r">{{goodsDetail.basicInfo.numberSells}}人已买</view>
+    </view> -->
+    <view class="goods-info-fx">
+      <view class='item'>
+        <image bindtap="addFav"  src="/images/icon/fav{{faved?'1':'0'}}.svg" style="height: 43rpx; width: 43rpx; margin-right: 30px;"></image>
+      </view>
+      <view class='item'>
+        <image src='/images/share/share1.png' style="height: 18px; width: 18px; margin-right: 15px;"></image>
+        <button open-type='share'></button>
+      </view>
+      <view class='item' bindtap="drawSharePic">
+        <image src='/images/share/share2.png' style="height: 18px; width: 18px;"></image>
+      </view>
+    </view>    
+  </view>
+  <!-- <view class="page__bd" wx:if="{{curGoodsKanjia}}" style='width:750rpx;'>
+    <view class="weui-cells__title">商品砍价设置</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">限量</view>
+        <view class="weui-cell__ft">{{curGoodsKanjia.number}}份</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">已售</view>
+        <view class="weui-cell__ft">{{curGoodsKanjia.numberBuy}}份</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">原价</view>
+        <view class="weui-cell__ft">￥{{curGoodsKanjia.originalPrice}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">底价</view>
+        <view class="weui-cell__ft">￥{{curGoodsKanjia.minPrice}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">截止</view>
+        <view class="weui-cell__ft">{{curGoodsKanjia.dateEnd}}</view>
+      </view>
+    </view>
+  </view> -->
+  <!-- <view class="page__bd" wx:if="{{pingtuanSet}}" style='width:750rpx;'>
+    <view class="weui-cells__title">商品拼团设置</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">已成团</view>
+        <view class="weui-cell__ft">{{pingtuanSet.numberSucccess}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">成团人数</view>
+        <view class="weui-cell__ft">{{pingtuanSet.numberPersion}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">退款条件</view>
+        <view class="weui-cell__ft">{{pingtuanSet.timeoutHours}}小时未成团</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">截止</view>
+        <view class="weui-cell__ft">{{pingtuanSet.dateEnd}}</view>
+      </view>
+    </view>
+  </view> -->
+  <!-- <view class="curKanjiaprogress" wx:if="{{curKanjiaprogress}}">
+    <view class="name">帮
+      <text style='color:red;font-weight:bold;'>{{curKanjiaprogress.joiner.nick}}</text> 砍价吧！</view>
+    <view class="weui-badge">当前价格 ￥ {{curKanjiaprogress.kanjiaInfo .curPrice}}
+    </view>
+    <view class="weui-progress" style='background-color:#fff;'>
+      <view class="weui-progress__bar">
+        <progress percent="{{100 * (curGoodsKanjia.originalPrice - curKanjiaprogress.kanjiaInfo.curPrice) / (curGoodsKanjia.originalPrice - curGoodsKanjia.minPrice)}}" stroke-width="8" />
+      </view>
+    </view>
+    <view class="weui-flex">
+      <view>
+        <view class="placeholder">{{curGoodsKanjia.originalPrice}}</view>
+      </view>
+      <view class="weui-flex__item"></view>
+      <view>
+        <view class="placeholder">{{curGoodsKanjia.minPrice}}</view>
+      </view>
+    </view>
+    <view class="weui-flex">
+      <view>
+        <view class="placeholder">原价</view>
+      </view>
+      <view class="weui-flex__item"></view>
+      <view>
+        <view class="placeholder">底价</view>
+      </view>
+    </view>
+    <view class="weui-flex">
+      <view class="weui-flex__item kjbutton">
+        <button class="weui-btn" type="primary" open-type="share">邀请朋友帮忙</button>
+      </view>
+      <view class="weui-flex__item kjbutton">
+        <button class="weui-btn" type="warn" bindtap="helpKanjia" disabled="{{myHelpDetail}}">{{myHelpDetail?"您已砍过":"帮TA砍"}}</button>
+      </view>
+    </view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">帮砍人数</view>
+        <view class="weui-cell__ft">{{curKanjiaprogress.kanjiaInfo .helpNumber}}
+        </view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">状态</view>
+        <view class="weui-cell__ft">{{curKanjiaprogress.kanjiaInfo .statusStr}}
+        </view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">报名时间</view>
+        <view class="weui-cell__ft">￥{{curKanjiaprogress.kanjiaInfo .dateAdd}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <button wx:if="{{curGoodsKanjia && (!curKanjiaprogress || curKanjiaprogress.kanjiaInfo.uid != curuid)}}" class="weui-btn" type="warn" bindtap="joinKanjia" style='width:700rpx;'>我也要报名参与</button>
+  <view class='space'></view> -->
+  <!-- <view class="goods-des-info" style="margin-top:35rpx;" wx:if="{{pingtuanList}}">
+    <view class="label-title" style="border-bottom:1px solid #eee;">{{pingtuanList.length}}人在拼单，可直接参与</view>
+    <view class="goods-text" style="margin-top:15rpx;border-bottom:1px solid #eee;overflow:hidden;" wx:for="{{pingtuanList}}" wx:key="id">
+      <view style="width:150rpx;float:left;">
+        <image style="width: 150rpx; height: 150rpx;" src="{{item.apiExtUser.avatarUrl}}"></image>
+        <view style="width:150rpx;text-align:center;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">{{item.apiExtUser.nick}}</view>
+      </view>
+      <view style="width:500rpx;float:left;margin-left:35rpx;">
+        <view>已有
+          <text style="color:red"> {{item.helpNumber}} </text>人参与</view>
+        <view style="color: #B0B0B0;font-size:24rpx;">截止: {{item.dateEnd}}</view>
+        <button type="warn" size="mini" data-pingtuanopenid="{{item.id}}" bindtap="toPingtuan"> 去拼单 </button>
+      </view>
+    </view>
+  </view> -->
+  <!-- <view wx:if="{{hasMoreSelect && goodsDetailSkuShowType==0}}" class="row-arrow" bindtap="bindGuiGeTap">
+    <view>{{selectSize}}</view>
+    <image src="/images/icon/next.png"></image>
+  </view> -->
+  <!-- <view class="size-label-box2" wx:if="{{goodsDetailSkuShowType==1}}">
+    <view class="label-title">选择商品规格</view>
+    <view class="size-label-box">
+      <block wx:for="{{goodsDetail.properties}}" wx:for-item="property" wx:for-index="idx" wx:key="id">
+        <view class="label">{{property.name}}</view>
+        <view class="label-item-box">
+          <view class="label-item {{item.active ? 'active' : '' }}" wx:for="{{property.childsCurGoods}}" wx:key="id" bindtap="labelItemTap" data-propertyindex="{{idx}}" data-propertychildindex="{{index}}">
+            {{item.name}}
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class="buy-num-box">
+      <view class="num-label">购买数量</view>
+      <view class="num-box">
+        <view class="num-jian {{buyNumber == buyNumMin ? 'hui': ''}}" bindtap="numJianTap">-</view>
+        <view class="num-input">
+          <input type="number" value="{{buyNumber}}" disabled/>
+        </view>
+        <view class="num-jia {{buyNumber== buyNumMax ? 'hui': ''}}" bindtap="numJiaTap">+</view>
+      </view>
+    </view>
+  </view> -->
+  <!-- <view wx:if="{{shopSubdetail}}" class="shop-container">
+    <image mode="aspectFill" src="{{shopSubdetail.info.pic}}"></image>
+    <view class="info">
+      <view class="title">{{shopSubdetail.info.name}}</view>
+      <view class="address">{{shopSubdetail.info.address}}</view>
+    </view>
+  </view> -->
+  <view wx:if="{{!onlySpace}}" class="goods-des-info">
+    <view class="label-title">商家介绍</view>
+    <view class="goods-text" style="padding-right:30rpx;padding-left:30rpx;font-size:24rpx;">
+      <parser html="{{goodsDetail.content}}" />
+    </view>
+  </view>
+  <view class="goods-des-info" style="margin-top:35rpx;" wx:if="{{!curGoodsKanjia && reputation}}">
+    <view class="label-title" style="border-bottom:1px solid #eee;">大家评价
+      <text style="color:red">（{{reputation.length}}）</text>
+    </view>
+    <view class="goods-text clearfix"  style="margin-top:15rpx;" wx:for="{{reputation}}" wx:key="id">
+      <view style="width:100rpx;float:left;">
+        <image style="width: 100rpx; height: 100rpx;" src="{{item.user.avatarUrl}}"></image>
+        <view style="text-align:center;width:100rpx;">{{item.goods.goodReputationStr}}</view>
+      </view>
+      <view style="width:550rpx;float:left;margin-left:35rpx;border-bottom:1px solid #eee;">
+        <view>{{item.goods.goodReputationRemark}}</view>
+        <view style="color: #B0B0B0;font-size:24rpx;">{{item.goods.dateReputation}} {{item.goods.property}}</view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{curKanjiaprogress && curKanjiaprogress.helps && curKanjiaprogress.helps.length>0}}" class="weui-panel weui-panel_access" style="width:750rpx;">
+    <view class="weui-panel__hd">砍价记录</view>
+    <view class="weui-panel__bd">
+      <view wx:for="{{curKanjiaprogress.helps}}" wx:key="*this" class="weui-media-box weui-media-box_appmsg">
+        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+          <image class="weui-media-box__thumb" src="{{item.avatarUrl}}" />
+        </view>
+        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+          <view class="weui-media-box__title" style='color:red;'>￥ {{item.cutPrice}}</view>
+          <view class="weui-media-box__desc" style='margin-top:10rpx;'>好友
+            <text style='color:red;'>{{item.nick}}</text> 于 {{item.dateAdd}} 帮砍</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='kjBuyButton' wx:if="{{curGoodsKanjia}}">
+    <button class="weui-btn" type="warn" bindtap="tobuy">用当前价购买</button>
+  </view>
+  <view class="row" style="width:100%">
+  <!-- style="margin-left:-76.5%; min-height: 60%;display: inline-block;" -->
+    <scroll-view class="column1 category-container" style="float: left;" scroll-y="true" scroll-with-animation="true">
+      <view class="category {{categorySelected==category?'active':''}}" wx:for="{{categories}}" wx:for-item="category" wx:key="id" data-id="{{category.id}}" data-categoryname="{{category}}" bindtap="onCategoryClick">
+          <view  class="name {{categorySelected==category?'active':''}}">{{category}}</view>
+        </view>
+    </scroll-view>
+    <!-- style="display:inline-flex;" -->
+    <view class="popup-contents column2" style="width: auto; min-height: 1000rpx">
+    <!-- <view style="width:auto; background-color: #fff;"> -->
+      <view class="size-label-box" style="float:top;">
+        <block wx:for="{{goodsDetail.properties}}" wx:for-item="property" wx:for-index="idx" wx:key="id">
+          <!-- <view style="width: 100%; top:0;"> -->
+            <view style="top:0; width: 80%;"  wx:for="{{property.childsCurGoods}}" wx:key="id" data-propertyindex="{{idx}}" data-propertychildindex="{{index}}">
+              <view wx:if="{{priceDict[item.name]['category']==categorySelected}}">
+                <view class="label-item-box" style="font-size:24rpx; color:#000;display:inline;width:100%">{{item.name}}</view>
+                <image class="label-item-box" src="/images/add-addr.png" style="width: 50rpx; height: 50rpx;display:inline; position: absolute; right:10px; margin-top:5px;" wx:key="id" bindtap="labelItemTap" data-propertyindex="{{idx}}" data-propertychildindex="{{index}}"></image>
+                <view class="label-item-box" style="font-size: 28rpx; color: #d81e06; font-weight: bold;">$  {{priceDict[item.name]["price"]}} <view wx:if="{{priceDict[item.name]['price']!=priceDict[item.name]['originalPrice']}}" style="color: #aaa; text-decoration: line-through; font-size: 28rpx; padding-left: 15px;">$  {{priceDict[item.name]["originalPrice"]}}</view>
+                </view>
+                <view style="margin-left: 0rpx; float: left;width:auto;padding-bottom:10px;color:#D8E6F3;overflow:hidden;">__________________________________________</view>
+              </view>
+            </view>
+          <!-- </view> -->
+        </block>
+      </view>
+      <!-- <view class="buy-num-box">
+        <view class="num-label">购买数量</view>
+        <view class="num-box">
+          <view class="num-jian {{buyNumber == buyNumMin ? 'hui': ''}}" bindtap="numJianTap">-</view>
+          <view class="num-input">
+            <input type="number" value="{{buyNumber}}" disabled/>
+          </view>
+          <view class="num-jia {{buyNumber== buyNumMax ? 'hui': ''}}" bindtap="numJiaTap">+</view>
+        </view>
+      </view> -->
+    </view>
+  </view>
+  <!-- <view class="safeAreaOldMarginBttom safeAreaNewMarginBttom"></view> -->
+</view>
+
+<!-- <block wx:if="{{posterShow}}">
+  <view class="poster-mask"></view>
+  <view class="poster">
+    <canvas class="canvas" style="{{canvasstyle}}" canvas-id="firstCanvas"></canvas>
+  </view>
+  <view class="poster-btn">
+    <button type="primary" size="mini" bindtap='_saveToMobile'> 保存图片 </button>
+    <button type="warn" size="mini" bindtap='closePop'> 关闭 </button>
+  </view>
+</block>
+
+<template is="apifmLogin" data="{{wxlogin: wxlogin}}" /> -->
+<!-- <float-menu />  -->
+
+
+<!-- <poster id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail"></poster>
+<view wx:if="{{showposterImg}}" class="popup-mask"></view>
+<view wx:if="{{showposterImg}}" class="posterImg-box">
+  <image mode="widthFix" class="posterImg" src="{{posterImg}}"></image>
+  <view class="btn-create" bindtap="savePosterPic">保存到相册</view>
+</view> -->

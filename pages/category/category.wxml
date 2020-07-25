@@ -34,14 +34,18 @@
       </block>
       
       <view class="goods" wx:for="{{currentGoods}}" wx:key="id">
-        <image mode="aspectFill" class="pic" src="{{item.pic}}" data-id='{{item.id}}' bindtap="toDetailsTap">
+        <image wx:if="{{item.categoryId!=136861}}" mode="aspectFill" class="pic" src="{{item.pic}}" data-id='{{item.id}}' bindtap="toDetailsTap">
           <!-- <image class='fresh-tag' src="/images/goods-description/fresh.png"></image> -->
         </image>
+        <image wx:if="{{item.categoryId==136861}}" mode="aspectFill" class="pic" src="{{item.pic}}" data-id='{{item.id}}' bindtap="toStoreTap" style="width: 100%; height: 180rpx;box-shadow: 0 0px 4px 0 rgba(0, 0, 0, 0.1), 0 0px 4px 0 rgba(0, 0, 0, 0.1);">
+        </image>
         <view style='display:flex; padding-top:8px;'>
-          <view class="price" style="font-size: 28rpx; color: #d81e06; font-weight: bold;">$ {{item.minPrice}}</view>
+          <view wx:if="{{categorySelected.id!=136861}}" class="price" style="font-size: 28rpx; color: #d81e06; font-weight: bold;">$ {{item.minPrice}}</view>
           <view wx:if="{{item.originalPrice && item.originalPrice > 0}}" class="goods-price" style='color: #aaa; text-decoration: line-through; font-size: 28rpx; padding-left: 10px;'>$ {{item.originalPrice}}</view>
         </view>
-        <view class="name ellipsis" data-id='{{item.id}}' bindtap="toDetailsTap" style="width: 200px;">{{item.name}}</view>
+        <view wx:if="{{categorySelected.id!=136861}}" class="name ellipsis" data-id='{{item.id}}' bindtap="toDetailsTap" style="width: 200px;">{{item.name}}</view>
+        <view wx:if="{{categorySelected.id==136861}}" class="name ellipsis" data-id='{{item.id}}' bindtap="toDetailsTap" style="width: 200px;text-align: center; font-size: 28rpx; color: #646464;">{{item.name}}</view>
+        
         <!-- <view class='soldInfo'>
           <view class='good-price-box'>
             <text class="price">${{item.minPrice}}</text>
@@ -54,7 +58,7 @@
             <!-- <text>评价 +{{item.gotScore}}积分</text> -->
           </view>
         </view>
-        <image data-id="{{item.id}}" bindtap="addShopCar" class="car" src="/images/icon/car.svg" style="color: #166A8F"></image>
+        <image wx:if="{{categorySelected.id!=136861}}" data-id="{{item.id}}" bindtap="addShopCar" class="car" src="/images/icon/car.svg" style="color: #166A8F"></image>
       </view>
     </scroll-view>
   </view>

@@ -9,6 +9,7 @@ Page({
   data: {
     wxlogin: true,
 
+    onlySpace: false,
     goodsDetail: {},
     hasMoreSelect: false,
     selectSize: SelectSizePrefix,
@@ -107,8 +108,12 @@ Page({
     const that = this;
     const goodsDetailRes = await WXAPI.goodsDetail(goodsId)
     const goodsKanjiaSetRes = await WXAPI.kanjiaSet(goodsId)
+    var onlySpace = false;
     if (goodsDetailRes.code == 0) {
       var selectSizeTemp = SelectSizePrefix;
+      if(((goodsDetailRes.data.content).replace("<p>", "").replace("</p>","").split("&nbsp;").join("")).trim()===""){
+        onlySpace = true;
+      }
       if (goodsDetailRes.data.properties) {
         for (var i = 0; i < goodsDetailRes.data.properties.length; i++) {
           selectSizeTemp = selectSizeTemp + " " + goodsDetailRes.data.properties[i].name;
@@ -132,6 +137,7 @@ Page({
         that.getVideoSrc(goodsDetailRes.data.basicInfo.videoId);
       }
       let _data = {
+        onlySpace: onlySpace,
         goodsDetail: goodsDetailRes.data,
         selectSizePrice: goodsDetailRes.data.basicInfo.minPrice,
         selectSizeOPrice: goodsDetailRes.data.basicInfo.originalPrice,
@@ -282,7 +288,10 @@ Page({
     }
     // 计算当前价格
     if (canSubmit) {
+      console.log(this.data.goodsDetail.properties);
+      console.log(this.data.goodsDetail.basicInfo.id+" "+ propertyChildIds);
       const res = await WXAPI.goodsPrice(this.data.goodsDetail.basicInfo.id, propertyChildIds)
+      console.log(res);
       if (res.code == 0) {
         let _price = res.data.price
         if (this.data.shopType == 'toPingtuan') {
@@ -300,6 +309,7 @@ Page({
       }
     }
     let skuGoodsPic = this.data.skuGoodsPic
+    console.log(this.data.goodsDetail);
     if (this.data.goodsDetail.subPics && this.data.goodsDetail.subPics.length > 0) {
       const _subPic = this.data.goodsDetail.subPics.find(ele => {
         return ele.optionValueId == child.id

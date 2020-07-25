@@ -11,11 +11,14 @@ Page({
   },
   async provinces(provinceId, cityId, districtId) {
     const res = await WXAPI.province()
+    console.log(res);
     if (res.code == 0) {
+      var temp = res.data[0];
+      temp["name"] = "纽约市"
       const provinces = [{
         id: 0,
         name: '请选择'
-      }].concat(res.data)
+      }].concat(temp)//.concat(res.data)
       let pIndex = 0
       if (provinceId) {
         pIndex = provinces.findIndex(ele => {

@@ -114,8 +114,10 @@
   <view style="background-image: url(/images/delivery-banner.jpg); background-size: contain; height: 150rpx;">
     <!-- <view style="font-size:35rpx; text-align: center; padding-top: 53rpx; color: #166A8F; text-style: bold;">爆品推荐</view> -->
   </view>
-  <view class="goods-container" wx:if="{{goodsRecommend.length > 0 && activeCategoryId == 0}}">
-    <view class="goods-box" wx:for="{{goodsRecommend}}" wx:key="id" bindtap="toDetailsTap" data-id="{{item.id}}">
+  <!-- <view class="goods-container" wx:if="{{goodsRecommend.length > 0 && activeCategoryId == 0}}"> -->
+    <view class="goods-container">
+     <view class="goods-box" wx:for="{{goods}}" wx:if="{{item.categoryId==137711}}" wx:key="id" bindtap="toDetailsTap" data-id="{{item.id}}">
+    <!-- <view class="goods-box" wx:for="{{goodsRecommend}}" wx:key="id" bindtap="toDetailsTap" data-id="{{item.id}}"> -->
       <view class="img-box">
         <image src="{{item.pic}}" class="image" mode="aspectFill" lazy-load="true" />
       </view>
@@ -184,7 +186,7 @@
     <!-- <view style="font-size:35rpx; text-align: center; padding-top: 53rpx; color: #166A8F; text-style: bold;">爆品推荐</view> -->
   </view>
   <view class="goods-container">
-    <view class="goods-box" wx:for="{{goods}}" wx:key="id" bindtap="toDetailsTap" data-id="{{item.id}}">
+    <view class="goods-box" wx:for="{{goods}}" wx:if="{{item.categoryId!=136861}}" wx:key="id" bindtap="toDetailsTap" data-id="{{item.id}}">
       <view class="img-box">
         <image src="{{item.pic}}" class="image" mode="aspectFill" lazy-load="true" />
       </view>
@@ -205,8 +207,9 @@
   <image src="/images/gift.png"></image>
 </view> -->
 <button open-type='contact'>
-<view class='coupons-float'>
-  <image style="height: 18px; width: 18px; padding-bottom: 10px; padding-left: 6px; position: relative" src="/images/customer-service.png"></image> <text style="font-size: 24rpx; text-align:center; color: #fff; position: absolute; top: 2px; padding-left: 3px;">联系客服</text>
+<view class='coupons-float' style="display:block;">
+  <!-- <image style="height: 18px; width: 18px; display:inline-block; position:absolute;margin-left: 18rpx;margin-top: 15rpx;" src="/images/customer-service.png"></image> -->
+  <text class="coupons-float2" style="font-size: 28rpx; color: #fff; text-align:center;">联系客服</text>
 </view>
 </button>
 

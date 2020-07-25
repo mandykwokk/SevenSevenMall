@@ -12,7 +12,7 @@
       <view class="space"></view>
       <view class="weui-cell weui-cell_select">
         <view class="weui-cell__hd weui-cell__hd_in-select-after">
-          <view class="weui-label">省份</view>
+          <view class="weui-label">城市</view>
         </view>
         <view class="weui-cell__bd">
           <picker bindchange="provinceChange" value="{{pIndex}}" range="{{provinces}}" range-key="name">

@@ -78,6 +78,7 @@ Page({
       });
       return
     }
+    console.log(res.data);
     this.setData({
       currentGoods: res.data
     });
@@ -85,6 +86,11 @@ Page({
   toDetailsTap: function(e) {
     wx.navigateTo({
       url: "/pages/goods-details/index?id=" + e.currentTarget.dataset.id
+    })
+  },
+  toStoreTap: function(e) {
+    wx.navigateTo({
+      url: "/pages/store-details/index?id=" + e.currentTarget.dataset.id
     })
   },
   onCategoryClick: function(e) {
