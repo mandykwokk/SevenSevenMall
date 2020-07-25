@@ -15,17 +15,17 @@
     <view class="goods-share" wx:if="{{goodsDetail.basicInfo.commissionType == 1}}">分享有赏，好友下单后可得 {{goodsDetail.basicInfo.commission}} 积分奖励</view>
     <view class="goods-share" wx:if="{{goodsDetail.basicInfo.commissionType == 2}}">分享有赏，好友下单后可得 {{goodsDetail.basicInfo.commission}}元 现金奖励</view>
     <view class="goods-profile">
-      <view class="p"><text>¥</text> {{selectSizePrice}}</view>
-      <view wx:if="{{goodsDetail.basicInfo.originalPrice && goodsDetail.basicInfo.originalPrice > 0}}" class="goods-price" style='color:#aaa;text-decoration:line-through;padding: 15rpx 0rpx 0rpx 15rpx;'><text>¥</text> {{selectSizeOPrice}}</view>
-      <view class="r">{{goodsDetail.basicInfo.numberSells}}人已买</view>
+      <view class="p"><text>$</text> {{selectSizePrice}}</view>
+      <view wx:if="{{goodsDetail.basicInfo.originalPrice && goodsDetail.basicInfo.originalPrice > 0}}" class="goods-price" style='color:#aaa;text-decoration:line-through;padding: 15rpx 0rpx 0rpx 15rpx;'><text>$</text> {{selectSizeOPrice}}</view>
+      <!-- <view class="r">{{goodsDetail.basicInfo.numberSells}}人已买</view> -->
     </view>
     <view class="goods-info-fx">
       <view class='item'>
-        <image src='/images/share/share1.png'></image>
+        <image src='/images/share/share1.png' style="height: 18px; width: 18px;"></image>
         <button open-type='share'></button>
       </view>
       <view class='item' bindtap="drawSharePic">
-        <image src='/images/share/share2.png'></image>
+        <image src='/images/share/share2.png' style="height: 18px; width: 18px;"></image>
       </view>
     </view>    
   </view>
@@ -222,13 +222,13 @@
   <view wx:if="{{!curGoodsKanjia}}" class="footer-box">
     <view class="contact">
       <button type="primary" open-type="contact" />
-      <image src="/images/icon/kf.svg"></image>
+      <image src="/images/icon/kf.svg" style="height: 43rpx; width: 43rpx; fill: #166A8F"></image>
     </view>
     <view class="shop-cart-btn" bindtap="goShopCar">
       <view class="shop-num">{{shopNum}}</view>
       <image src="/images/nav/cart-off.png"></image>
     </view>
-    <image bindtap="addFav" class="fav-icon" src="/images/icon/fav{{faved?'1':'0'}}.svg"></image>
+    <image bindtap="addFav" class="fav-icon" src="/images/icon/fav{{faved?'1':'0'}}.svg" style="height: 43rpx; width: 43rpx;"></image>
     <view wx:if="{{!goodsDetail.basicInfo.pingtuan}}" class="join-shop-cart" bindtap="{{goodsDetailSkuShowType==0?'toAddShopCar':'addShopCar'}}">加入购物车</view>
     <view wx:if="{{!goodsDetail.basicInfo.pingtuan}}" class="now-buy"  data-shopType="{{shopType}}" bindtap="{{goodsDetailSkuShowType==0?'tobuy':'buyNow'}}">立即购买</view>
     <view wx:if="{{goodsDetail.basicInfo.pingtuan}}" class="join-shop-cart" bindtap="tobuy">单独购买</view>
@@ -244,8 +244,8 @@
         <view class="pop-goods-des">
           <view class="pop-goods-title">{{goodsDetail.basicInfo.name}}</view>
           <view class="pop-goods-price">
-            ¥ <text class="t1">{{selectSizePrice}}</text>
-            <text wx:if="{{goodsDetail.basicInfo.originalPrice && goodsDetail.basicInfo.originalPrice > 0}}" class="pop-goods-price-original"><text>¥</text> {{selectSizeOPrice}}</text>
+            $ <text class="t1">{{selectSizePrice}}</text>
+            <text wx:if="{{goodsDetail.basicInfo.originalPrice && goodsDetail.basicInfo.originalPrice > 0}}" class="pop-goods-price-original"><text>$</text> {{selectSizeOPrice}}</text>
           </view>
         </view>
         <image class="pop-goods-close" src="/images/icon/close0.svg" bindtap="closePopupTap"></image>

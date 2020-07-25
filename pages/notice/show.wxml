@@ -1,6 +1,6 @@
-<view class="notice">
+<view class="notice" ><!-- style="background-image: url(/images/notice-bg.jpg); background-size: cover; height:cover; width:100%;" -->
   <view class="title">{{notice.title}}</view>
   <view class="text">
-    <parser html="{{notice.content}}" />
+    <parser html="{{notice.content}}"/>
   </view>
-</view>
+</view> 

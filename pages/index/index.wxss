@@ -97,6 +97,7 @@
   align-items: center;
   padding-right: 32rpx;
   border-bottom: 1rpx solid #efeff4;
+  background-color: #FFFADB;
 }
 .notice{
   display: flex;
@@ -117,7 +118,8 @@
   padding-left: 16rpx;
   font-size: 24rpx;
   overflow: hidden;
-  color: #e64340;
+  /* color: #e64340; */
+  color: #E6A440;
 }
 .notice-box .more {
   color: #666;
@@ -133,27 +135,35 @@
   background-color: #fff;
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 20rpx;
 }
 .category-list{
-  width:150rpx;
+  /* width:185rpx; */
+  width: 250rpx;
   margin-top:20rpx;
   text-align: center;
   display: inline-block;
   overflow: hidden;
+  /* background-color: #000; */
 }
 .category-column{
   width:100%;
-  margin-top:20rpx;
+  /* margin-top:20rpx; */
   overflow: hidden;
 }
 .category-imgbox{
-  width:80rpx;
-  height:80rpx;
+  width:100rpx;
+  height:100rpx;
+  border-radius: 10px;
 }
 .category-title{
   font-size: 24rpx;
   text-align:center;
-  margin-top:10rpx;
+  /* margin-top:-80rpx;
+  margin-bottom: 40rpx; */
+  margin-top: -10rpx;
+  /* font-weight: bold; */
+  color: #166A8F;
 }
 
 
@@ -188,7 +198,7 @@
   flex-wrap:wrap;
   box-sizing: content-box;
   padding: 24rpx;
-  background-color: #F2f2f2;
+  background-color: #E3EEF7;
 }
 .goods-box{
   width: 339rpx;
@@ -259,15 +269,30 @@
 }
 .coupons-float {
   position: fixed;
+  right:-40rpx;
+  bottom:80rpx;
+  width:210rpx;
+  height:70rpx;
+  background-color: #166A8F;
+  text-align: left;
+  border-radius:20px;
+  opacity: 80%;
+  border: 1rpx solid #166A8F;
+}
+
+.customerservice-float {
+  position: fixed;
   right:15rpx;
   bottom:80rpx;
-  width:80rpx;
-  height:80rpx;
   background-color: #fff;
   text-align: center;
   border-radius:50%;
   border: 1rpx solid #ddd;
+  width:60rpx;
+  height:60rpx;
+  margin-top: 10rpx;
 }
+
 .coupons-float image {
   width:60rpx;
   height:60rpx;
@@ -275,7 +300,7 @@
 }
 .tuan {
   width:750rpx;
-  background-color: #F2f2f2;
+  background-color: #E3EEF7;
   padding-top:10rpx;
 }
 .tuan-item {
@@ -401,4 +426,8 @@
   color: #666666;
   font-size: 26rpx;
   text-decoration:line-through;
+}
+
+.loadmore-bg{
+  background-color: #E3EEF7;
 }

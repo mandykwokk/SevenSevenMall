@@ -24,7 +24,7 @@
                 {{option.optionName}}:{{option.optionValueName}}
               </block>
             </view>
-            <view class="goods-price">¥ {{item.price}}</view>
+            <view class="goods-price">$ {{item.price}}</view>
             <view class="buy-num">
               <view class="jian-btn" catchtap="jianBtnTap" data-index="{{index}}">-</view>
               <input type="number" value="{{item.number}}" data-key="{{item.key}}" bindinput="changeCarNumber"/>
@@ -41,7 +41,7 @@
   </view>
   <view class="jiesuan-box">
     <view class="left-price">
-      <view class="total" hidden="{{noSelect}}">合计：¥ {{price}} + {{score}} 积分</view>
+      <view class="total" hidden="{{noSelect}}">合计：$ {{price}}</view><!-- + {{score}} 积分</view> -->
     </view>
     <view class="to-pay-btn">
       <navigator url="/pages/to-pay-order/index">去结算</navigator>

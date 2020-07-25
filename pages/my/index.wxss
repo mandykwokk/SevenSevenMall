@@ -50,9 +50,11 @@ page,view,image,input {
 
 .version {
   width:100vw;
-	font-size: 24rpx;
+  font-size: 20rpx;
+  color: #666;
 	text-align: center;
-  padding: 32rpx;
+  padding: 25rpx;
+  background-color: #E3EEF7;
 }
 
 .order-shortcut {
@@ -134,7 +136,7 @@ page,view,image,input {
 .space {
   width: 100vw;
   height: 16rpx;
-  background: #F4F5F9;
+  background: #E3EEF7;
 }
 .line {
   width:718px;

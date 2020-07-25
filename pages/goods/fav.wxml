@@ -2,8 +2,8 @@
     <view class="list2" wx:for="{{goods}}" wx:key="id">
       <navigator url="/pages/goods-details/index?id={{item.goodsId}}"><image class="img" mode="aspectFill" src="{{item.pic}}"></image></navigator>
       <view class="goods-info">
-        <navigator url="/pages/goods-details/index?id={{item.goodsId}}"><view class="title ellipsis">{{item.goodsName}}</view></navigator>
-        <image class="delete-btn" src="/images/icon/delete.svg" data-id="{{item.goodsId}}" bindtap="removeFav"></image>
+        <navigator url="/pages/goods-details/index?id={{item.goodsId}}" style="height:30px;"><view class="title ellipsis">{{item.goodsName}}</view></navigator>
+        <image class="delete-btn" src="/images/icon/delete.svg" data-id="{{item.goodsId}}" bindtap="removeFav" style="height: 20px; width: 18px; bottom: 0; position: relative;"></image>
       </view>
     </view>
 </view>

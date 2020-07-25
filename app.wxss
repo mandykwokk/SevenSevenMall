@@ -10,7 +10,7 @@
 }
 .space {
   height:20rpx;
-  background-color: #F2f2f2;
+  background-color: #E3EEF7;
 }
 .safeAreaOldPaddingBttom {
   padding-bottom: env(safe-area-inset-bottom);

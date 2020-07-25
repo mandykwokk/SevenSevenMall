@@ -24,7 +24,7 @@ component_1.VantComponent({
         buttonText: String,
         currency: {
             type: String,
-            value: '¥'
+            value: '$'
         },
         buttonType: {
             type: String,

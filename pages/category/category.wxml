@@ -1,6 +1,6 @@
 <view class="container">
   <view class="search">
-    <input type="text" placeholder="输入搜索关键词" value="{{name}}" bindinput="bindinput" bindconfirm="bindconfirm"></input>
+    <input type="text" placeholder="输入搜索关键词" value="{{name}}" bindinput="bindinput" bindconfirm="bindconfirm" style="font-size: 30rpx;"></input>
     <image src="/images/icon/search.svg"></image>
   </view>
   <view class="content-container">
@@ -37,19 +37,24 @@
         <image mode="aspectFill" class="pic" src="{{item.pic}}" data-id='{{item.id}}' bindtap="toDetailsTap">
           <!-- <image class='fresh-tag' src="/images/goods-description/fresh.png"></image> -->
         </image>
-        <view class="name ellipsis" data-id='{{item.id}}' bindtap="toDetailsTap">{{item.name}}</view>
-        <view class='soldInfo'>
-          <view class='good-price-box'>
-            <text class="price">¥{{item.minPrice}}</text>
-          </view>
+        <view style='display:flex; padding-top:8px;'>
+          <view class="price" style="font-size: 28rpx; color: #d81e06; font-weight: bold;">$ {{item.minPrice}}</view>
+          <view wx:if="{{item.originalPrice && item.originalPrice > 0}}" class="goods-price" style='color: #aaa; text-decoration: line-through; font-size: 28rpx; padding-left: 10px;'>$ {{item.originalPrice}}</view>
         </view>
+        <view class="name ellipsis" data-id='{{item.id}}' bindtap="toDetailsTap" style="width: 200px;">{{item.name}}</view>
+        <!-- <view class='soldInfo'>
+          <view class='good-price-box'>
+            <text class="price">${{item.minPrice}}</text>
+            <view wx:if="{{(item.originalPrice && item.originalPrice > 0) && item.originalPrice != item.minPrice}}"  style='color:#aaa;text-decoration:line-through; font-size: 28rpx; padding-top:-3px;'>$ {{item.originalPrice}}</view>
+          </view>
+        </view> -->
         <view class='soldInfo'>
           <view class='good-sales-box'>
-            <text class="number">已售 {{item.numberSells}}件</text>
-            <text>评价 +{{item.gotScore}}积分</text>
+            <!-- <text class="number">已售 {{item.numberSells}}件</text> -->
+            <!-- <text>评价 +{{item.gotScore}}积分</text> -->
           </view>
         </view>
-        <image data-id="{{item.id}}" bindtap="addShopCar" class="car" src="/images/icon/car.svg"></image>
+        <image data-id="{{item.id}}" bindtap="addShopCar" class="car" src="/images/icon/car.svg" style="color: #166A8F"></image>
       </view>
     </scroll-view>
   </view>
@@ -76,4 +81,7 @@
     </view>
   </view>
   <view class="sku-btn" bindtap="addCarSku">加入购物车</view>
+   <view class="safeAreaOldPaddingBttom safeAreaNewPaddingBttom" wx:if="{{shopType =='addShopCar'}}" bindtap="addShopCar">
+        <view class="popup-join-btn">加入购物车</view>
+      </view>
 </block>

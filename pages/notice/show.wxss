@@ -1,7 +1,20 @@
+page{
+  background-color: #E3EEF7;
+}
 .notice {
+  margin: 20px;
+  border-style: dashed;
+  border-radius:20px;
+  border-width: 4px;
+  border-color: white;
   padding: 32rpx;
+  /* padding-right: 70rpx;
+  padding-left: 70rpx; */
   font-size: 26rpx;
   color: #333;
+  /* background-image: url(/images/notice-bg.jpg) repeat center;
+  position: absolute;
+  width: initial; */
 }
 .title {
   width: 100%;
@@ -12,6 +25,10 @@
 .text {
   margin-top: 32rpx;
   line-height: 64rpx;
+  /* margin-bottom:400rpx;
+  width: min-content; */
+  word-wrap: break-word;
+  min-height: 385px;
 }
 .text image {
   max-width: 100%;

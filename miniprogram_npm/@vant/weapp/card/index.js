@@ -32,7 +32,7 @@ component_1.VantComponent({
         },
         currency: {
             type: String,
-            value: '¥'
+            value: '$'
         }
     },
     methods: {

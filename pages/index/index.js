@@ -152,7 +152,7 @@ Page({
     this.miaoshaGoods()
   },
   async goodsDynamic(){
-    const res = await WXAPI.goodsDynamic(0)
+    const res = await WXAPI.goodsDynamic(0)                                                                   
     if (res.code == 0) {
       this.setData({
         goodsDynamic: res.data
@@ -163,9 +163,13 @@ Page({
     const res = await WXAPI.goodsCategory()
     let categories = [];
     if (res.code == 0) {
+      // res.data.find(_set => {
+      //     console.log("test "+JSON.stringify(_set))
+      //   })
       const _categories = res.data.filter(ele => {
         return ele.level == 1
       })
+
       categories = categories.concat(_categories)
     }
     this.setData({

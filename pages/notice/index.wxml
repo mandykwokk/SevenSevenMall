@@ -1,4 +1,4 @@
-<navigator wx:for="{{noticeList}}" wx:key="id" url="/pages/notice/show?id={{item.id}}">
+<navigator style="background-color: #E3EEF7;" wx:for="{{noticeList}}" wx:key="id" url="/pages/notice/show?id={{item.id}}">
   <view class='cashlogs'>
     <view class='profile'>
       <view class='typeStr'>{{item.title}}</view>

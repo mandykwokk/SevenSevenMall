@@ -1,4 +1,4 @@
-<view wx:if="{{isClose}}" class="float-menu-cover" bindtap="open">
+<view wx:if="{{isClose}}" class="float-menu-cover" bindtap="open" style="background-color = black">
   <image class="arrows" src="/images/icon/go-l.svg"></image>
   <view class="r">
     <text>快速</text>
@@ -12,11 +12,11 @@
     <text>导航</text>
   </view>
 </view>
-<view wx:if="{{!isClose}}" class="float-menu-items">
+<view wx:if="{{!isClose}}" class="float-menu-items item-icon" style="background-color = black">
   <navigator url="/pages/index/index" open-type="switchTab">
     <view class="item">
       <image src="/images/nav/home-off.png"></image>
-      <text>首页</text>
+      <text style="color: #fff">首页</text>
     </view>
   </navigator>
   <navigator url="/pages/category/category" open-type="switchTab">

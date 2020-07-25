@@ -14,7 +14,7 @@
       <view>{{balance}}</view>
       <view>余额</view>
     </view>
-    <view class='item right' bindtap='goAsset'>
+    <!-- <view class='item right' bindtap='goAsset'>
       <view>{{freeze}}</view>
       <view>冻结</view>
     </view>
@@ -27,7 +27,7 @@
         <view>{{growth}}</view>
         <view>成长值</view>
       </view>
-    </navigator>
+    </navigator> -->
   </view>
   <view class="space"></view>
   <navigator url="/pages/order-list/index">
@@ -70,19 +70,19 @@
     <image class="next" src="/images/icon/next.png"></image>
   </view>
   <view class="line"></view>
-  <navigator url="/pages/maidan/index">
+  <!-- <navigator url="/pages/maidan/index">
     <view class="menu-item">
       <view class="l">优惠买单</view>
       <image class="next" src="/images/icon/next.png"></image>
     </view>
-  </navigator>
+  </navigator> -->
   <view class="line"></view>
-  <navigator url="/pages/asset/index">
+  <!-- <navigator url="/pages/asset/index">
     <view class="menu-item">
       <view class="l">资金明细</view>
       <image class="next" src="/images/icon/next.png"></image>
     </view>
-  </navigator>
+  </navigator> -->
   <view class="line"></view>
   <!-- flex布局的新菜单 -->
   <!-- <view class="menu-item">
@@ -108,12 +108,12 @@
       <image class="next" src="/images/icon/next.png"></image>
     </view>
   </navigator>
-  <navigator wx:else url="/pages/fx/apply-status">
+  <!-- <navigator wx:else url="/pages/fx/apply-status">
     <view class="menu-item">
       <view class="l">分销中心</view>
       <image class="next" src="/images/icon/next.png"></image>
     </view>
-  </navigator>
+  </navigator> -->
   <view wx:if="{{apiUserInfoMap.base.isSeller}}" class="line"></view>
   <navigator wx:if="{{apiUserInfoMap.base.isSeller}}" url="/pages/fx/members">
     <view class="menu-item">
@@ -130,7 +130,7 @@
   </navigator>
 
   <view class="space"></view>
-  <navigator url="/pages/invoice/apply">
+  <!-- <navigator url="/pages/invoice/apply">
     <view class="menu-item">
       <view class="l">申请发票</view>
       <image class="next" src="/images/icon/next.png"></image>
@@ -142,7 +142,7 @@
       <view class="l">发票记录</view>
       <image class="next" src="/images/icon/next.png"></image>
     </view>
-  </navigator>
+  </navigator> -->
 
   <view class="space"></view>
   <navigator url="/pages/select-address/index">
@@ -152,12 +152,12 @@
     </view>
   </navigator>
   <view class="line"></view>
-  <navigator url="/pages/coupons/index">
+  <!-- <navigator url="/pages/coupons/index">
     <view class="menu-item">
       <view class="l">领券中心</view>
       <image class="next" src="/images/icon/next.png"></image>
     </view>
-  </navigator>
+  </navigator> -->
   <view class="line"></view>
   <navigator url="/pages/goods/fav">
     <view class="menu-item">
@@ -166,7 +166,7 @@
     </view>
   </navigator>
 
-  <view class="space"></view>
+  <!-- <view class="space"></view>
   <navigator url="/pages/sign/index">
     <view class="menu-item">
       <view class="l">每日签到</view>
@@ -187,7 +187,7 @@
       <image class="next" src="/images/icon/next.png"></image>
     </view>
   </navigator>
-  <view class="line"></view>
+  <view class="line"></view> -->
 
   <view class="space"></view>
   <view class="menu-item" bindtap="aboutUs">

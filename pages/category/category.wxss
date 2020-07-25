@@ -16,7 +16,7 @@ page,view,image,input {
   margin-top: 32rpx;
   position: relative;
   width: 700rpx;
-  height: 66rpx;
+  height: 50rpx;
 }
 .search input {
   border: 1rpx solid #e3e3e3;
@@ -38,6 +38,7 @@ page,view,image,input {
   height: 100%;
   margin-top: 32rpx;
   display: flex;
+  background-color: #EAF5FE;
 }
 
 .category-container {
@@ -86,7 +87,8 @@ page,view,image,input {
 
 .goods-container .goods {
   position: relative;
-  padding: 20rpx 30rpx;
+  /* padding: 20rpx 30rpx; */
+  padding: 30rpx 35rpx;
   font-size: 36rpx;
   line-height: 40rpx;
   border-bottom: 1px solid #f7f7f7;
